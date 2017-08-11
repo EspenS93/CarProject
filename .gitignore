@@ -1,2 +1,16 @@
 .vscode/launch.json
 .vscode/tasks.json
+Backend/appsettings.json
+Backend/Properties/PublishProfiles/Backend20170811082527 - Web Deploy.pubxml
+Backend/wwwroot/favicon.ico
+Backend/wwwroot/index.html
+Backend/wwwroot/inline.bundle.js
+Backend/wwwroot/inline.bundle.js.map
+Backend/wwwroot/main.bundle.js
+Backend/wwwroot/main.bundle.js.map
+Backend/wwwroot/polyfills.bundle.js
+Backend/wwwroot/polyfills.bundle.js.map
+Backend/wwwroot/styles.bundle.js
+Backend/wwwroot/styles.bundle.js.map
+Backend/wwwroot/vendor.bundle.js
+Backend/wwwroot/vendor.bundle.js.map
