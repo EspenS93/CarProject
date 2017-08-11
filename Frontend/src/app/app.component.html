@@ -1,0 +1,38 @@
+<header class="w3-bar w3-black">
+  <a routerLinkActive="active" routerLink="/dashboard" class="w3-bar-item w3-button w3-mobile w3-large">Home</a>
+  <a routerLinkActive="active" routerLink="/cars" class="w3-bar-item w3-button w3-mobile w3-large">Cars</a>
+  <a *ngIf="loggedIn" routerLinkActive="active" routerLink="/newCar" class="w3-bar-item w3-button w3-mobile w3-large">Add a new car</a>
+  <button class="w3-bar-item w3-button w3-large w3-right" (click)="toggleMenu()">&#9776;</button>
+</header>
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="rightMenu">
+    <button (click)="toggleMenu();" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <ng-container *ngIf="loggedIn;then loggedInTemplate else notLoggedInTemplate"></ng-container>
+    <ng-template #notLoggedInTemplate>
+    <button (click)="toggleLoginModal()" class="w3-bar-item w3-button">Login</button>
+    <a href="#" class="w3-bar-item w3-button">Help</a>
+    <a href="#" class="w3-bar-item w3-button">Language</a>
+    </ng-template>
+    <ng-template #loggedInTemplate>
+    <a href="#" class="w3-bar-item w3-button">Profile</a>
+    <a routerLink="/cars" class="w3-bar-item w3-button">Your cars</a>
+    <a routerLink="/newCar" class="w3-bar-item w3-button">Add a new car</a>
+    <a href="#" class="w3-bar-item w3-button">Settings</a>
+    <a href="#" class="w3-bar-item w3-button">Help</a>
+    <a href="#" class="w3-bar-item w3-button">Support</a>
+    <a href="#" class="w3-bar-item w3-button">Language</a>
+    <button (click)="logout()" class="w3-bar-item w3-button">Logout</button>
+    </ng-template>
+  </div>
+<div class="w3-container w3-margin-top w3-margin-bottom">
+  <router-outlet></router-outlet>
+  <app-login></app-login>
+</div>
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>

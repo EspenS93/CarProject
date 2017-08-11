@@ -1,0 +1,31 @@
+<div class="w3-col m6 l6 w3-left">
+  <h2>My Cars</h2>
+  <div>
+    <label>Car name:</label> <input #searchTerm />
+    <button (click)="search(searchTerm);">
+    search
+  </button>
+  </div>
+  <ul class="cars" *ngIf="cars">
+    <ng-container *ngFor="let car of cars">
+      <li *ngIf="car" (click)="onSelect(car)" [class.selected]="car === selectedCar">
+        <span>{{car.name}}</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+<div *ngIf="selectedCar" class="w3-col m6 l6 w3-right w3-border">
+  <div *ngIf="selectedCar.name" class="w3-margin w3-border">
+    <h1>{{selectedCar.name}}</h1>
+  </div>
+  <div *ngIf="image.image" class="w3-margin w3-border">
+    <img *ngIf="image.image" [src]="image.image" style="width:100%" />
+  </div>
+  <div *ngIf="selectedCar.color || selectedCar.make || selectedCar.model" class="w3-border w3-container w3-margin">
+    <p *ngIf="selectedCar.color">Color: {{selectedCar.color}}</p>
+    <p *ngIf="selectedCar.make">Make: {{selectedCar.make}}</p>
+    <p *ngIf="selectedCar.model">Model: {{selectedCar.model}}</p>
+  </div>
+  <button (click)="gotoDetail()">View Details</button>
+  <button class="delete w3-right" (click)="delete(selectedCar); $event.stopPropagation()">Delete</button>
+</div>

@@ -1,0 +1,49 @@
+<div class="w3-row">
+  <p>
+    Add a new car
+  </p>
+  <div class="w3-col m4 l4 w3-left">
+    <p>Name: <input [(ngModel)]="car.name" class="w3-input" type="text" /></p>
+    <p>Color: <input [(ngModel)]="car.color" class="w3-input" type="text" /></p>
+    <p>Make: <input [(ngModel)]="car.make" class="w3-input" type="text" /></p>
+    <p>Model: <input [(ngModel)]="car.model" class="w3-input" type="text" /></p>
+    <p>Upload image: <input id="imageUploader" type="file" name="file" accept="image/*" (change)="fileChangeEvent($event)" base-sixty-four-input multiple />
+      </p>
+      <div *ngIf="image.image" class="row" >
+        <!--<ng-container *ngFor="let imageu of imageList; let i = index">
+          <img [src]="imageu.image" style="width:100px;height:100px;" class="col-3"/>
+        </ng-container>-->
+        <img [src]="image.image" style="width:100px;height:100px;" class="col-3"/>
+      </div>
+    <button (click)="add();">
+      Add
+    </button>
+    <button *ngIf="!preview" (click)="previewCar();">
+      Preview
+    </button>
+    <button *ngIf="preview" (click)="previewCar();">
+      Close Preview
+    </button>
+  </div>
+
+  <div *ngIf="preview" class="w3-col m6 l6 w3-right w3-border">
+    <div *ngIf="car.name" class="w3-margin w3-border">
+      <h1>{{car.name}}</h1>
+    </div>
+    <!--<div *ngIf="imageList.length >0" class="w3-margin w3-border">
+      <ng-container *ngFor="let imageu of imageList; let i = index">
+          <img [src]="imageu.image" class="mySlides"/>
+      </ng-container>
+      <img *ngIf="imageu.image" [src]="image.image" style="width:100%" />
+    </div>-->
+    <div *ngIf="image.image" class="w3-margin w3-border">
+      <img [src]="image.image" class="mySlides"/>
+    </div>
+    <div *ngIf="car.color || car.make || car.model" class="w3-border w3-container w3-margin">
+      <p *ngIf="car.color">Color: {{car.color}}</p>
+      <p *ngIf="car.make">Make: {{car.make}}</p>
+      <p *ngIf="car.model">Model: {{car.model}}</p>
+    </div>
+  </div>
+
+</div>

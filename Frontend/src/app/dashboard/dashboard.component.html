@@ -1,0 +1,18 @@
+<h1 class="w3-center">Top 3 Cars</h1>
+<div>
+  <div *ngFor="let car of cars" class="w3-card w3-col m4 l4 ">
+    <header class="w3-container">
+      <h2>{{car.name}}</h2>
+    </header>
+    <div class="w3-container">
+      <img *ngIf="images[car.id]" [src]="images[car.id].image" style="width:100%" />
+
+      <p>{{car.color}}</p>
+      <p>{{car.make}}</p>
+      <p>{{car.model}}</p>
+    </div>
+    <footer class="w3-container">
+      <p>footer</p>
+    </footer>
+  </div>
+</div>
